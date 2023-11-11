@@ -10,7 +10,7 @@ const path = require("path");
 const dotenv = require('dotenv');
 
 dotenv.config();
-const MONGODB_URI = "mongodb+srv://books:books@cluster0.iplgng7.mongodb.net/books?retryWrites=true&w=majority" || process.env.MONGO_URI;
+const MONGODB_URI = "mongodb+srv://books:books@cluster0.iplgng7.mongodb.net/test?retryWrites=true&w=majority" || process.env.MONGO_URI;
 const PORT = process.env.PORT || 3000;
 
 // Use the cors middleware to allow requests from all origins.
