@@ -1,5 +1,4 @@
 {
-  "versions": 2,
   "build": [
     {
       "src": "*.js","use": "@vercel/mode"
