@@ -33,6 +33,9 @@ mongoose.connect(MONGODB_URI)
 
 app.use(bodyParser.json());
 
+app.get("/",(req,res)=>{
+  res.json("API");
+})
 // POST endpoint to add an image
 app.post('/api/image', async (req, res) => {
   try {
