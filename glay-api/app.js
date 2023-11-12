@@ -75,14 +75,18 @@ app.post('/api/link', async (req, res) => {
 
     const savedLink = await newLink.save();
     
-    // Include the URL in the response
-    // const linkURL = `${req.protocol}://${req.get('host')}/api/link/${link_name}`;
-    
     res.status(201).json({ message: 'Link posted successfully.', link: savedLink });
-  } catch (err) {
-    console.error('Error posting link:', err);
+  } catch (error) {
+    // Check for duplicate key error (code 11000)
+    if (error.code === 11000) {
+      return res.status(400).json({ error: 'Link name must be unique.' });
+    }
+
+    // Handle other errors
+    console.error('Error posting link:', error);
     res.status(500).json({ error: 'Internal server error.' });
   }
+
 });
 
 
